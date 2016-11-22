@@ -179,3 +179,29 @@ open class AERecord {
     }
     
 }
+
+open class AERecordObject: NSManagedObject {
+    
+    /**
+     Init new instance of entity object in AERecord.Context.default
+     */
+    public init() {
+        let entity : NSEntityDescription = type(of: self).entityDescription!
+        super.init(entity:entity, insertInto:AERecord.Context.default)
+    }
+    
+    /**
+     Init new instance of entity object in specific context
+     
+     - parameter context: If not specified, `Context.default` will be used.
+     */
+    public init(in context: NSManagedObjectContext = AERecord.Context.default) {
+        let entityDescription = NSEntityDescription.entity(forEntityName: type(of: self).entityName, in: context)!
+        super.init(entity:entityDescription, insertInto:context)
+    }
+    
+    public override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
+    }
+
+}

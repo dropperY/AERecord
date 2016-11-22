@@ -47,7 +47,9 @@ class AERecordTests: XCTestCase {
         
         // species
         let dogs = Species.create(with: ["name" : "dog" as AnyObject])
-        let cats = Species.create(with: ["name" : "cat" as AnyObject])
+        
+        let cats = Species()
+        cats.name = "cat"
         
         // breeds
         let siberian = Breed.create(with: ["name" : "Siberian" as AnyObject, "species" : cats])

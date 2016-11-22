@@ -8,8 +8,9 @@
 
 import Foundation
 import CoreData
+import AERecord
 
-class Species: NSManagedObject {
+class Species: AERecordObject {
 
     @NSManaged var name: String
     @NSManaged var breeds: NSSet
